@@ -41,38 +41,43 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="filters">
-        <input
-          className="search"
-          type="text"
-          value={search}
-          onChange={(e) => {
-            setSearch(e.target.value);
-          }}
-        />
-        <button
-          onClick={() => {
-            const templist = filteredList.filter((res) =>
-              res.info?.name.toLowerCase().includes(search.toLowerCase())
-            );
-            setTempList(templist);
-          }}
-        >
-          Search
-        </button>
-        {/* creating a button, on click of which a callback function is called. filter method is used to filter out the restaurants which have rating 4 or above  */}
-        <button
-          className="filter-btn"
-          onClick={() => {
-            setFilteredList(
-              filteredList.filter((cards) => cards.info.avgRating > 4)
-            );
-          }}
-        >
-          Top Rated Restaurants
-        </button>
+      <div className="filters flex">
+        <div className="search m-4 p-4">
+          <input
+            type="text"
+            className="border border-black border-solid"
+            value={search}
+            onChange={(e) => {
+              setSearch(e.target.value);
+            }}
+          />
+          <button
+            className="px-4 py-1 bg-blue-100 m-4 rounded-lg"
+            onClick={() => {
+              const templist = filteredList.filter((res) =>
+                res.info?.name.toLowerCase().includes(search.toLowerCase())
+              );
+              setTempList(templist);
+            }}
+          >
+            Search
+          </button>
+        </div>
+        <div className="search m-4 p-4 flex items-center">
+          {/* creating a button, on click of which a callback function is called. filter method is used to filter out the restaurants which have rating 4 or above  */}
+          <button
+            className="px-4 py-1 bg-blue-100 m-4 rounded-lg"
+            onClick={() => {
+              setFilteredList(
+                filteredList.filter((cards) => cards.info.avgRating > 4)
+              );
+            }}
+          >
+            Top Rated Restaurants
+          </button>
+        </div>
       </div>
-      <div className="res_container">
+      <div className="res_container flex flex-wrap">
         {/* the below statement loops over all the restaurants in cards variable using map function */}
         {tempList.map((restaurant) => (
           <Link

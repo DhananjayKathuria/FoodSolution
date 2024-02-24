@@ -3,12 +3,12 @@ import { CDN_LINK } from "../utils/contents";
 const ResCard = (props) => {
   const { resData } = props;
   return (
-    <div className="res_card">
+    <div className="res_card m-4 p-4 w-[200px] bg-slate-100 rounded-lg">
       <img
-        className="res_logo"
+        className="res_logo rounded-lg"
         src={CDN_LINK + resData.info.cloudinaryImageId}
       />
-      <h3>{resData.info.name}</h3>
+      <h3 className="font-bold py-4">{resData.info.name}</h3>
       <h4>{resData.info.cuisines.join(", ")}</h4>
       <h4>{resData.info.sla.slaString}</h4>
       <h4>{resData.info.avgRating} stars</h4>
