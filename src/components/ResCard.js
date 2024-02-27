@@ -21,7 +21,9 @@ export const topRatedLabel = (ResCard) => {
   return (props) => {
     return (
       <div>
-        <label>Top Rated</label>
+        <label className="absolute bg-black text-white rounded-lg m-2 p-2">
+          Top Rated
+        </label>
         <ResCard {...props} />
       </div>
     );

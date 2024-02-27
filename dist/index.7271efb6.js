@@ -34275,6 +34275,7 @@ const topRatedLabel = (ResCard)=>{
         return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                    className: "absolute bg-black text-white rounded-lg m-2 p-2",
                     children: "Top Rated"
                 }, void 0, false, {
                     fileName: "src/components/ResCard.js",
@@ -34285,7 +34286,7 @@ const topRatedLabel = (ResCard)=>{
                     ...props
                 }, void 0, false, {
                     fileName: "src/components/ResCard.js",
-                    lineNumber: 25,
+                    lineNumber: 27,
                     columnNumber: 9
                 }, undefined)
             ]
@@ -34531,6 +34532,8 @@ var _shimmerDefault = parcelHelpers.interopDefault(_shimmer);
 var _reactRouterDom = require("react-router-dom");
 var _useRestMenuFetch = require("../utils/useRestMenuFetch");
 var _useRestMenuFetchDefault = parcelHelpers.interopDefault(_useRestMenuFetch);
+var _menuAccordianTitle = require("./MenuAccordianTitle");
+var _menuAccordianTitleDefault = parcelHelpers.interopDefault(_menuAccordianTitle);
 var _s = $RefreshSig$();
 const RestMenu = ()=>{
     _s();
@@ -34538,35 +34541,38 @@ const RestMenu = ()=>{
     const resMenu = (0, _useRestMenuFetchDefault.default)(resid);
     if (resMenu === null) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimmerDefault.default), {}, void 0, false, {
         fileName: "src/components/RestMenu.js",
-        lineNumber: 8,
+        lineNumber: 9,
         columnNumber: 32
     }, undefined);
-    const { name, cuisines, locality, costForTwoMessage } = resMenu?.cards[0]?.card?.card?.info;
-    const { itemCards } = resMenu?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
+    const { name, cuisines, locality, costForTwoMessage } = resMenu?.cards[2]?.card?.card?.info;
+    const { itemCards } = resMenu?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
     // console.log(resMenu?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
-    const categories = resMenu?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c)=>c.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory");
-    console.log(categories);
+    const categories = resMenu?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c)=>c.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory");
+    // console.log(categories);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "text-center",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                className: "font-bold my-6 text-2xl",
                 children: name
-            }, void 0, false, {
-                fileName: "src/components/RestMenu.js",
-                lineNumber: 24,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                children: cuisines.join(", ")
             }, void 0, false, {
                 fileName: "src/components/RestMenu.js",
                 lineNumber: 25,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                children: locality
+                className: "font-bold text-lg",
+                children: cuisines.join(", ")
             }, void 0, false, {
                 fileName: "src/components/RestMenu.js",
                 lineNumber: 26,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                children: locality
+            }, void 0, false, {
+                fileName: "src/components/RestMenu.js",
+                lineNumber: 27,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
@@ -34574,43 +34580,32 @@ const RestMenu = ()=>{
                     children: costForTwoMessage
                 }, void 0, false, {
                     fileName: "src/components/RestMenu.js",
-                    lineNumber: 27,
+                    lineNumber: 28,
                     columnNumber: 12
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/RestMenu.js",
-                lineNumber: 27,
+                lineNumber: 28,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
                 children: "Menu Items"
             }, void 0, false, {
                 fileName: "src/components/RestMenu.js",
-                lineNumber: 28,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
-                children: itemCards.map((item)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                        children: [
-                            item.card.info.name,
-                            " - ",
-                            "\u20B9 ",
-                            item.card.info.price / 100 || item.card.info.defaultPrice / 100
-                        ]
-                    }, item.card.info.id, true, {
-                        fileName: "src/components/RestMenu.js",
-                        lineNumber: 31,
-                        columnNumber: 11
-                    }, undefined))
-            }, void 0, false, {
-                fileName: "src/components/RestMenu.js",
                 lineNumber: 29,
                 columnNumber: 7
-            }, undefined)
+            }, undefined),
+            categories.map((category)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _menuAccordianTitleDefault.default), {
+                    data: category?.card?.card
+                }, category?.card?.title, false, {
+                    fileName: "src/components/RestMenu.js",
+                    lineNumber: 31,
+                    columnNumber: 9
+                }, undefined))
         ]
     }, void 0, true, {
         fileName: "src/components/RestMenu.js",
-        lineNumber: 23,
+        lineNumber: 24,
         columnNumber: 5
     }, undefined);
 };
@@ -34630,7 +34625,7 @@ $RefreshReg$(_c, "RestMenu");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","./Shimmer":"g6ZGj","react-router-dom":"9xmpe","../utils/useRestMenuFetch":"8phC1","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"8phC1":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","./Shimmer":"g6ZGj","react-router-dom":"9xmpe","../utils/useRestMenuFetch":"8phC1","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./MenuAccordianTitle":"bGd0h"}],"8phC1":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$600b = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -34664,7 +34659,197 @@ exports.default = useRestMenuFetch;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"21dqq","../utils/contents":"6SJbq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"6jcNq":[function(require,module,exports) {
+},{"react":"21dqq","../utils/contents":"6SJbq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"bGd0h":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$1718 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$1718.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _menuAccordianList = require("./MenuAccordianList");
+var _menuAccordianListDefault = parcelHelpers.interopDefault(_menuAccordianList);
+var _s = $RefreshSig$();
+0, _menuAccordianListDefault.default;
+const MenuAccordianTitle = ({ data })=>{
+    _s();
+    const [showItems, setShowItems] = (0, _react.useState)(false);
+    const handleClick = ()=>{
+        setShowItems(!showItems);
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "w-6/12 bg-slate-100 shadow-lg p-4 mx-auto my-4",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "flex justify-between cursor-pointer",
+                    onClick: handleClick,
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                            className: "font-bold",
+                            children: [
+                                data.title,
+                                "(",
+                                data.itemCards.length,
+                                ")"
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/MenuAccordianTitle.js",
+                            lineNumber: 18,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                            children: "\uD83D\uDD3D"
+                        }, void 0, false, {
+                            fileName: "src/components/MenuAccordianTitle.js",
+                            lineNumber: 21,
+                            columnNumber: 11
+                        }, undefined)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/components/MenuAccordianTitle.js",
+                    lineNumber: 14,
+                    columnNumber: 9
+                }, undefined),
+                showItems && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _menuAccordianListDefault.default), {
+                    items: data.itemCards
+                }, void 0, false, {
+                    fileName: "src/components/MenuAccordianTitle.js",
+                    lineNumber: 24,
+                    columnNumber: 23
+                }, undefined)
+            ]
+        }, void 0, true, {
+            fileName: "src/components/MenuAccordianTitle.js",
+            lineNumber: 13,
+            columnNumber: 7
+        }, undefined)
+    }, void 0, false, {
+        fileName: "src/components/MenuAccordianTitle.js",
+        lineNumber: 11,
+        columnNumber: 5
+    }, undefined);
+};
+_s(MenuAccordianTitle, "nufYacSoU4bbrMzdqcBBtNUNFgY=");
+_c = MenuAccordianTitle;
+exports.default = MenuAccordianTitle;
+var _c;
+$RefreshReg$(_c, "MenuAccordianTitle");
+
+  $parcel$ReactRefreshHelpers$1718.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./MenuAccordianList":"hGGzc","react":"21dqq"}],"hGGzc":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$458c = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$458c.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _contents = require("../utils/contents");
+const MenuAccordianList = ({ items })=>{
+    console.log(items);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: items.map((item)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "text-left p-2 m-2 border-b-2 border-gray-200 flex",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "py-2 w-9/12",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                children: item.card.info.name
+                            }, void 0, false, {
+                                fileName: "src/components/MenuAccordianList.js",
+                                lineNumber: 12,
+                                columnNumber: 13
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                children: [
+                                    " - \u20B9",
+                                    item.card.info.price / 100
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/MenuAccordianList.js",
+                                lineNumber: 13,
+                                columnNumber: 13
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                className: "text-xs",
+                                children: item.card.info.description
+                            }, void 0, false, {
+                                fileName: "src/components/MenuAccordianList.js",
+                                lineNumber: 14,
+                                columnNumber: 13
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/MenuAccordianList.js",
+                        lineNumber: 11,
+                        columnNumber: 11
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "w-3/12",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "absolute",
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                    className: "p-2 shadow-lg bg-black text-white m-auto rounded",
+                                    children: "Add +"
+                                }, void 0, false, {
+                                    fileName: "src/components/MenuAccordianList.js",
+                                    lineNumber: 18,
+                                    columnNumber: 15
+                                }, undefined)
+                            }, void 0, false, {
+                                fileName: "src/components/MenuAccordianList.js",
+                                lineNumber: 17,
+                                columnNumber: 13
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                src: (0, _contents.CDN_LINK) + item.card.info.imageId,
+                                alt: "NO IMAGE"
+                            }, void 0, false, {
+                                fileName: "src/components/MenuAccordianList.js",
+                                lineNumber: 22,
+                                columnNumber: 13
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/MenuAccordianList.js",
+                        lineNumber: 16,
+                        columnNumber: 11
+                    }, undefined)
+                ]
+            }, item.card.info.id, true, {
+                fileName: "src/components/MenuAccordianList.js",
+                lineNumber: 7,
+                columnNumber: 9
+            }, undefined))
+    }, void 0, false, {
+        fileName: "src/components/MenuAccordianList.js",
+        lineNumber: 5,
+        columnNumber: 5
+    }, undefined);
+};
+_c = MenuAccordianList;
+exports.default = MenuAccordianList;
+var _c;
+$RefreshReg$(_c, "MenuAccordianList");
+
+  $parcel$ReactRefreshHelpers$458c.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../utils/contents":"6SJbq"}],"6jcNq":[function(require,module,exports) {
 module.exports = require("8277cd54fe2f6c03")(require("42ddae464752f086").getBundleURL("aXMci") + "About.84db8bad.js" + "?" + Date.now()).catch((err)=>{
     delete module.bundle.cache[module.id];
     throw err;
