@@ -1,9 +1,10 @@
 import ResCard, { topRatedLabel } from "./ResCard";
 // import cards from "../utils/mockData"; no more required as we are fetching live data from api
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/userContext";
 
 const Body = () => {
   // creating a useState variable filteredList which has initial state of the mockdata
@@ -31,7 +32,7 @@ const Body = () => {
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
-
+  const { loggedInUser, setUserName } = useContext(UserContext);
   const onlineStatus = useOnlineStatus();
   if (onlineStatus === false)
     return <h1>Looks like you are disconnected. Please check your network.</h1>;
@@ -75,6 +76,15 @@ const Body = () => {
           >
             Top Rated Restaurants
           </button>
+        </div>
+        <div className="search m-4 p-4 flex items-center">
+          {/* Updating the context using this input. */}
+          <label className="p-2">Username: </label>
+          <input
+            className="border border-black"
+            value={loggedInUser}
+            onChange={(e) => setUserName(e.target.value)}
+          />
         </div>
       </div>
       <div className="res_container flex flex-wrap">

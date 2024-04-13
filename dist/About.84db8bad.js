@@ -654,6 +654,8 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _userContext = require("../utils/userContext");
+var _userContextDefault = parcelHelpers.interopDefault(_userContext);
 class UserClass extends (0, _reactDefault.default).Component {
     constructor(props){
         super(props);
@@ -666,27 +668,41 @@ class UserClass extends (0, _reactDefault.default).Component {
                     children: this.props.name
                 }, void 0, false, {
                     fileName: "src/components/UserClass.js",
-                    lineNumber: 9,
+                    lineNumber: 10,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
                     children: "React Developer"
                 }, void 0, false, {
                     fileName: "src/components/UserClass.js",
-                    lineNumber: 10,
+                    lineNumber: 11,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
                     children: "Yamunanagar, Haryana"
                 }, void 0, false, {
                     fileName: "src/components/UserClass.js",
-                    lineNumber: 11,
+                    lineNumber: 12,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _userContextDefault.default).Consumer, {
+                    children: ({ loggedInUser })=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                            className: "font-bold",
+                            children: loggedInUser
+                        }, void 0, false, {
+                            fileName: "src/components/UserClass.js",
+                            lineNumber: 15,
+                            columnNumber: 34
+                        }, this)
+                }, void 0, false, {
+                    fileName: "src/components/UserClass.js",
+                    lineNumber: 14,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/components/UserClass.js",
-            lineNumber: 8,
+            lineNumber: 9,
             columnNumber: 7
         }, this);
     }
@@ -698,6 +714,6 @@ exports.default = UserClass;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["1dSMa","1xC6H"], null, "parcelRequire77dd")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../utils/userContext":"eBA1b"}]},["1dSMa","1xC6H"], null, "parcelRequire77dd")
 
 //# sourceMappingURL=About.84db8bad.js.map
