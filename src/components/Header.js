@@ -2,10 +2,14 @@ import { useState, useContext } from "react";
 import { LOGO_URL } from "../utils/contents";
 import { Link } from "react-router-dom";
 import UserContext from "../utils/userContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [loginbtn, setLoginBtn] = useState("Login");
   const { loggedInUser } = useContext(UserContext);
+
+  // subscribing to store using a selector
+  const cartItems = useSelector((store) => store.cart.items);
   return (
     <div className="flex justify-between shadow-lg">
       <div className="logo_container">
@@ -22,7 +26,9 @@ const Header = () => {
           <li className="px-3">
             <Link to="/contact-Us">Contact Us</Link>
           </li>
-          <li className="px-3">Cart</li>
+          <li className="px-3">
+            <Link to="/cart">Cart - ({cartItems.length})</Link>
+          </li>
           <li>
             <button
               className="login"

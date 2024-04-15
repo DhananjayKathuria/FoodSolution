@@ -714,6 +714,6 @@ exports.default = UserClass;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../utils/userContext":"eBA1b"}]},["1dSMa","1xC6H"], null, "parcelRequire77dd")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../utils/userContext":"eBA1b","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["1dSMa","1xC6H"], null, "parcelRequire77dd")
 
 //# sourceMappingURL=About.84db8bad.js.map
